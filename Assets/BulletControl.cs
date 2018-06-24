@@ -11,7 +11,13 @@ public class BulletControl : UnityEngine.MonoBehaviour
 	{
 		startTime = Time.time;
 	}
-
+	void OnTriggerEnter2D(Collision2D hitInfo)
+	{
+		if (hitInfo.gameObject.tag == "Wall")
+		{
+			Destroy(gameObject);
+		}
+	}
 	// Update is called once per frame
 	void Update()
 	{

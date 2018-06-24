@@ -9,6 +9,7 @@ public class GameManagerControl : UnityEngine.MonoBehaviour
 	public int life = 3;
 	private GameObject[] enemies;
 	private GameObject[] humans;
+	private GameObject[] bullets;
 	private CharacterControl myPlayer;
 	private int myScore = 0;
 	private int humansSaved = 0;
@@ -80,6 +81,13 @@ public class GameManagerControl : UnityEngine.MonoBehaviour
 			Destroy(humans[i]);
 		}
 
+		bullets = GameObject.FindGameObjectsWithTag("Bullet");
+		for (int i = 0; i < bullets.Length; i++)
+		{
+			Destroy(bullets[i]);
+		}
+
+
 	}
 	private void NewLevel(float levelNum)
 	{
@@ -97,7 +105,7 @@ public class GameManagerControl : UnityEngine.MonoBehaviour
 				//print("i don know da wae");
 			}
 
-			toSpawn = EnemyTypes[Random.Range(0, EnemyTypes.Length)];
+			toSpawn = i == 0 ? EnemyTypes[Random.Range(0, EnemyTypes.Length - 1)] : EnemyTypes[Random.Range(0, EnemyTypes.Length)];
 			if (Vector2.Distance(spawnPosition, new Vector3(0, 0, 0)) > 4)
 			{
 				Instantiate(toSpawn, spawnPosition, transform.rotation);

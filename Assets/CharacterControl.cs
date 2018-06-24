@@ -20,6 +20,7 @@ public class CharacterControl : UnityEngine.MonoBehaviour
 	private KeyCode restart = KeyCode.R;
 	private Rigidbody2D rb2d;
 	private bool isRespawning = false;
+
 	//fire
 	public GameObject myBullet;
 	private GameObject tempBullet;
